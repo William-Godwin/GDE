@@ -19,8 +19,10 @@ function(run_active_cmake_diagnostics)
 
             # TODO: wipe out ${CMAKE_BINARY_DIR}/graphviz_output dir here
             COMMAND ${CMAKE_COMMAND} "--graphviz=${CMAKE_BINARY_DIR}/graphviz_output/${PROJECT_NAME}.dot" .
-            COMMAND for dot_file in \$$\(find "${CMAKE_BINARY_DIR}/graphviz_output/*.dot*" ! -name \"*.png\" \)\; do echo \"Generating \$\${dot_file}.png\" && dot -Tpng \"\$$dot_file\" -o \"\$$dot_file.png\" \; done;
-            WORKING_DIRECTORY "${CMAKE_BINARY_DIR}"
+            COMMAND for dot_file in \$$\(find "${CMAKE_BINARY_DIR}/graphviz_output/*.dot*" 
+                                            ! -name \"*.png\" \)\; do echo \"Generating \$\${dot_file}.png\" 
+                                            && dot -Tpng \"\$$dot_file\" -o \"\$$dot_file.png\" \; done;
+                                            WORKING_DIRECTORY "${CMAKE_BINARY_DIR}"
         )
     endif()
 endfunction(run_active_cmake_diagnostics)
