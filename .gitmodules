@@ -6,7 +6,7 @@
 	path = extern/godot-cpp
 	url = https://github.com/godotengine/godot-cpp.git
 	branch = 4.2
-[submodule "extern/entt"]
+[submodule "entt"]
 	path = extern/entt
 	url = https://github.com/skypjack/entt
 	branch = master
