@@ -26,16 +26,12 @@ list(APPEND CMAKE_MODULE_PATH
     "${CMAKE_CURRENT_SOURCE_DIR}/extern/godot-cpp/cmake/"
 )
 
-include(vcpkg-init)
-
 project("${GDEXTENSION_LIB_NAME}"
   LANGUAGES
     C CXX
   VERSION
     0.1.0
 )
-
-include(vcpkg-install-deps)
 
 # =======================================================================
 # Compiler identification
@@ -63,11 +59,10 @@ set(compiler_is_msvc "$<CXX_COMPILER_ID:MSVC>")
 include(godot-dev-configuration)
 
 # =======================================================================
-# 3rd party library setup/configuration (leverages vcpkg)
+# 3rd party library setup/configuration
 # =======================================================================
 
-find_package(fmt CONFIG REQUIRED)
-find_package(spdlog CONFIG REQUIRED)
+include(entt-install)
 
 # =======================================================================
 # GDExtension dynamic library setup/configuration
@@ -159,9 +154,10 @@ endif()
 # gdextension library dependency linkage
 target_link_libraries(${PROJECT_NAME}
     PUBLIC godot::cpp
-    PRIVATE fmt::fmt
-    PRIVATE fmt::fmt-header-only
-    PRIVATE spdlog::spdlog_header_only
+    PUBLIC EnTT::EnTT
+    #PRIVATE fmt::fmt
+    #PRIVATE fmt::fmt-header-only
+    #PRIVATE spdlog::spdlog_header_only
 )
 
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
