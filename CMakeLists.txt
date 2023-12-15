@@ -62,7 +62,7 @@ include(godot-dev-configuration)
 # 3rd party library setup/configuration
 # =======================================================================
 
-include(entt-install)
+include(entt-config)
 
 # =======================================================================
 # GDExtension dynamic library setup/configuration
@@ -154,7 +154,7 @@ endif()
 # gdextension library dependency linkage
 target_link_libraries(${PROJECT_NAME}
     PUBLIC godot::cpp
-    PUBLIC EnTT::EnTT
+    #PRIVATE EnTT::EnTT
     #PRIVATE fmt::fmt
     #PRIVATE fmt::fmt-header-only
     #PRIVATE spdlog::spdlog_header_only

@@ -1,5 +1,5 @@
 # =======================================================================
-# entt bindings submodule update/init
+# entt submodule update/init
 # =======================================================================
 
 # confirm we found the godot engine source files.
@@ -14,10 +14,8 @@ if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/extern/entt")
     # update the c++ bingings submodule to populate it with
     # the necessary source for the entt library
     execute_process(
-        COMMAND git submodule update --init extern/entt
+        COMMAND git submodule update --init --recursive extern/entt
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
         COMMAND_ERROR_IS_FATAL ANY
     )
 endif()
-
-find_package()
