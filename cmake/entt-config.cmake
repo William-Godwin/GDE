@@ -11,6 +11,7 @@ if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/extern/entt")
 
     # update the c++ bingings submodule to populate it with
     # the necessary source for the entt library
+    #git submodule update --init --recursive Submodule path 'extern/entt'
     execute_process(
         COMMAND git submodule update --init extern/entt
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}

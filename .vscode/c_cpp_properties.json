@@ -27,7 +27,11 @@
             "configurationProvider": "ms-vscode.cmake-tools",
             "intelliSenseMode": "windows-msvc-x64",
             "cppStandard": "c++23",
-            "compilerPath": "cl"
+            "compilerPath": "cl",
+            "includePath": [
+                "${default}",
+                "${workspaceFolder}/extern/godot-cpp/**"
+            ]
         }
     ]
 }
